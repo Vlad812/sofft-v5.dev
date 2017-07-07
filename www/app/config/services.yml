@@ -1,4 +1,4 @@
 services:
   app.table_list:
-    class:     AppBundle\Service\Builder\TableList
+    class:     AppBundle\Service\Builder\DataView\TableList
     arguments: [ '@service_container', "@doctrine.orm.entity_manager", '@twig' ]

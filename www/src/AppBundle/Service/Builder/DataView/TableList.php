@@ -6,7 +6,7 @@
  * Time: 13:37
  */
 
-namespace  AppBundle\Service\Builder;
+namespace  AppBundle\Service\Builder\DataView;
 
 class TableList
 {

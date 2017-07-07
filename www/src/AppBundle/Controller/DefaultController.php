@@ -18,7 +18,6 @@ class DefaultController extends Controller
 
        die($tabListService->getMsg());
 
-
     }
 
 }
