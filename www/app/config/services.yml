@@ -1,0 +1,4 @@
+services:
+  app.table_list:
+    class:     AppBundle\Service\Builder\TableList
+    arguments: [ '@service_container', "@doctrine.orm.entity_manager", '@twig' ]
