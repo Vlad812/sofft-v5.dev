@@ -2,3 +2,7 @@ services:
   app.table_list:
     class:     AppBundle\Service\Builder\DataView\TableList
     arguments: [ '@service_container', "@doctrine.orm.entity_manager", '@twig' ]
+
+  app.view_data:
+        class:     AppBundle\Service\Dispetcher\DataView
+        arguments: [ '@service_container', "@doctrine.orm.entity_manager", '@twig' ]

@@ -1,0 +1,11 @@
+
+# Список Вендоров
+vendor_list:
+  entity: 'vendorList'
+  handler: 'vendorList'
+  view:
+    table: 'tableVendorList'
+    box: 'boxVendorList'
+    json: 'jsonVendorList'
+
+#--------------------------------------------
