@@ -4,8 +4,9 @@ vendor_list:
   entity: 'vendorList'
   handler: 'vendorList'
   view:
-    table: 'tableVendorList'
-    box: 'boxVendorList'
-    json: 'jsonVendorList'
+    form: 'Data\VendorList\Form'
+    table: 'Data\VendorList\Table'
+    box: 'Data\VendorList\Box'
+    json: 'Data\VendorList\Json'
 
 #--------------------------------------------

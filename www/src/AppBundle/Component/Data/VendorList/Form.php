@@ -6,16 +6,15 @@
  * Date: 10.07.2017
  * Time: 18:13
  */
-namespace AppBundle\Builder;
 
+namespace AppBundle\Component\Data\VendorList;
 
-class tableVendorList
+class Form
 {
 
 
     function __construct($d)
     {
-
 
 
     }
@@ -24,7 +23,7 @@ class tableVendorList
     public function execute()
     {
 
-        return 'Таблица !!';
+        return 'Form!!';
     }
 
 }

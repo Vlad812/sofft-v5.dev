@@ -1,0 +1,16 @@
+<div>
+!!!!!!!!!!!</div>
+
+<table>
+    {% for tr in data %}
+        <tr>
+
+            {% for key, val in tr %}
+
+                <td>{{ key }} --- {{  val }}</td>
+
+            {% endfor %}
+        </tr>
+    {% endfor %}
+
+</table>

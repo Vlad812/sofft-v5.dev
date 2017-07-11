@@ -9,16 +9,23 @@
 
 namespace AppBundle\Service\Dispetcher;
 
-use AppBundle\AppBundle;
 use Symfony\Component\Yaml\Yaml;
 
 class DataView
 {
 
-    public $name = 'vendor_list';
-    public $type = 'table';
+    public $name;
+
+    /**
+     * Тип представления (table, box, json)
+     *
+     * @var string
+     */
+    public $type;
+
     public $param = [];
 
+    // Сервисы
     public  $container;
     public  $em;
     public  $twig;
@@ -33,6 +40,11 @@ class DataView
     private $handler;
     private $view;
 
+    /**
+     * Готовые данные (данные+обработка+требуемое представление)
+     *
+     * @var string
+     */
     private $res;
 
     /**
@@ -55,13 +67,21 @@ class DataView
         $this->loadConfig();
 
         // получение данных
+        $temp = [ 0 => [ 'id' =>1,
+                        'name' => 'Test',
+                        'discr' => 'some discription .... '],
+                  1 => [ 'id' =>2,
+                        'name' => 'Test2',
+                        'discr' => 'some discription 2  .... '],
+        ];
+
+        $this->dataStorage = $temp;
 
         // создание обработчика
 
 
         //
         $this->res = $this->createView();
-
 
         return $this->res;
     }
@@ -109,7 +129,6 @@ class DataView
             $this->handler = $conf['handler'];
             $this->view = $conf['view'][$this->type];
 
-           // echo $conf['view'][$this->type];
         }
         else {
 
@@ -124,17 +143,12 @@ class DataView
     private function createView()
     {
 
-        $nameClass = 'AppBundle\Builder\\'.$this->view;
-
-        //print_r( new $nameClass($this));
-
+        $nameClass = 'AppBundle\Component\\'.$this->view;
 
         $v = new $nameClass($this);
 
         return $v->execute();
-
     }
-
 
     public function getMsg()
     {
@@ -147,6 +161,5 @@ class DataView
        // echo 'Hello! I am DataView!';
 
     }
-
 
 }

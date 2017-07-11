@@ -5,7 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Yaml\Yaml;
+
 
 class DefaultController extends Controller
 {
@@ -15,12 +15,13 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
 
-       $tableVendorList = $this->container->get('app.view_data');
+       $type =  $request->query->get('type');
 
-        //Yaml::parse();
+       $tableVendorList = $this->container->get('app.view_data')
+           ->setName('vendor_list')
+           ->setType($type);
 
        die( $tableVendorList->execute() );
-
     }
 }
 
