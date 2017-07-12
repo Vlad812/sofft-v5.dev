@@ -1,16 +1,16 @@
 <div>
-!!!!!!!!!!!</div>
 
-<table>
-    {% for tr in data %}
-        <tr>
+</div>
 
-            {% for key, val in tr %}
+<table style="border: solid 1px gray">
+        {% for tr in data %}
+                <tr>
 
-                <td>{{ key }} --- {{  val }}</td>
+                  <td>{{  tr.getNameVendor() }}</td>
+                  <td>{{  tr.Site() }}</td>
+                  <td>{{  tr.Type() }}</td>
 
-            {% endfor %}
-        </tr>
-    {% endfor %}
+                </tr>
+        {% endfor %}
 
 </table>

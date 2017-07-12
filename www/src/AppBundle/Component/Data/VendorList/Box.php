@@ -9,21 +9,27 @@
 
 namespace AppBundle\Component\Data\VendorList;
 
+use AppBundle\Service\Dispetcher\DataView;
+
 class Box
 {
 
+    public $class;
 
-    function __construct($d)
+
+    function __construct(DataView $data)
     {
-
+        $this->class = $data;
 
     }
 
 
-    public function execute()
-    {
+public function execute()
+{
 
-        return 'BOX!!';
-    }
+    $table = $this->class->twig->render('AppBundle:default:box.html.twig', ['data' => $this->class->dataStorage]);
+
+    return 'BOX !!'.$table;
+}
 
 }

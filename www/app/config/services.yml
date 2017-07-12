@@ -1,8 +1,13 @@
 services:
-  app.table_list:
+  #Пробный сервис
+  pp.table_list:
     class:     AppBundle\Service\Builder\DataView\TableList
     arguments: [ '@service_container', "@doctrine.orm.entity_manager", '@twig' ]
-
+  #
   app.view_data:
         class:     AppBundle\Service\Dispetcher\DataView
-        arguments: [ '@service_container', "@doctrine.orm.entity_manager", '@twig' ]
+        arguments: [ '@service_container', "@app.data_bd", '@twig' ]
+  #
+  app.data_bd:
+        class:     AppBundle\Service\Dispetcher\DataBd
+        arguments: [  "@doctrine.orm.entity_manager"]

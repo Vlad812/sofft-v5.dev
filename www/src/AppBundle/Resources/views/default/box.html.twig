@@ -1,0 +1,14 @@
+
+
+
+{% for tr in data %}
+    <div style="border: solid 1px green; float:left; margin-right: 20px">
+
+        <div>{{  tr.getNameVendor() }}</div>
+        <div>{{  tr.getSite() }}      </div>
+        <div>{{  tr.Type() }}   </div>
+
+
+    </div>
+{% endfor %}
+

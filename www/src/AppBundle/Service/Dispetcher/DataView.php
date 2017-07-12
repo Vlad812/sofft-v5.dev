@@ -27,7 +27,7 @@ class DataView
 
     // Сервисы
     public  $container;
-    public  $em;
+    public  $dataBd;
     public  $twig;
 
     /**
@@ -36,9 +36,9 @@ class DataView
      */
     public $dataStorage;
 
-    private $entity;
-    private $handler;
-    private $view;
+    public $entity;
+    public $handler;
+    public $view;
 
     /**
      * Готовые данные (данные+обработка+требуемое представление)
@@ -50,12 +50,12 @@ class DataView
     /**
      * DataView constructor.
      * @param $container
-     * @param $em
+     * @param $dataBd
      * @param $twig
      */
-    public function __construct($container, $em, $twig){
+    public function __construct($container, $dataBd, $twig){
         $this->container = $container;
-        $this->em = $em;
+        $this->dataBd= $dataBd;
         $this->twig = $twig;
     }
 
@@ -67,15 +67,7 @@ class DataView
         $this->loadConfig();
 
         // получение данных
-        $temp = [ 0 => [ 'id' =>1,
-                        'name' => 'Test',
-                        'discr' => 'some discription .... '],
-                  1 => [ 'id' =>2,
-                        'name' => 'Test2',
-                        'discr' => 'some discription 2  .... '],
-        ];
-
-        $this->dataStorage = $temp;
+        $this->dataStorage = $this->dataBd->getData($this);
 
         // создание обработчика
 
@@ -153,13 +145,8 @@ class DataView
     public function getMsg()
     {
 
-           // print_r($arr);
-
-
-        //echo file_get_contents(__DIR__.'/../../Resources/config/map_data_view.yml');
-
        // echo 'Hello! I am DataView!';
 
     }
-
 }
+

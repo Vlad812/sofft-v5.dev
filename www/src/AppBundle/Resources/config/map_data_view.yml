@@ -1,7 +1,7 @@
 
 # Список Вендоров
 vendor_list:
-  entity: 'vendorList'
+  entity: 'VendorList'
   handler: 'vendorList'
   view:
     form: 'Data\VendorList\Form'
